@@ -1,0 +1,51 @@
+.gray-block {
+  position: absolute;
+  width: 0;
+  height: 90%;
+  background: $gray;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: -1;
+  &.width-50 {
+    width: 50%;
+  }
+}
+.page-load {
+  .gray-block {
+    animation: gray_block 3.2s ease forwards;
+  }
+  @keyframes gray_block {
+    0% {
+      left: 13%;
+    }
+    40% {
+      width: 50%;
+      left: 13%;
+    }
+    100% {
+      width: 50%;
+      left: -45%;
+    }
+  }
+}
+.content-load {
+
+}
+.content-hide {
+  .gray-block {
+    animation: gray_block_f 1s ease forwards;
+  }
+  @keyframes gray_block_f {
+    0% {
+      width: 50%;
+      left: -45%;
+    }
+    100% {
+      width: 50%;
+      left: 13%;
+    }
+  }
+}

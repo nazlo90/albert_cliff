@@ -1,0 +1,270 @@
+.open-btn-rtl {
+  display: inline-block;
+  text-align: right;
+  overflow: hidden;
+  position: relative;
+  @include em((
+          width: 40px,
+  ), $base-font-size);
+  &.ov-vis {
+    overflow: visible;
+    #dots, .slide-up {
+      transform: translateY(50%) scale(1, 0);
+      transition: .3s;
+    }
+    .slide-up {
+      transition-delay: 0.3s !important;
+    }
+    &:hover {
+      #dots, .slide-up {
+        transform: none;
+      }
+    }
+    &.inactive {
+      pointer-events: none;
+    }
+  }
+}
+.button {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  overflow: hidden;
+  width: 0;
+  @include em((
+          border: 3px solid $red,
+          right: -3px,
+  ), $base-font-size);
+  &.small {
+    @include em((
+            height: 40px,
+    ), $base-font-size);
+    >img {
+      margin: auto;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+    .hover_rtl {
+      display: block;
+      position: absolute;
+      background: $red;
+      height: 100%;
+      width: 100%;
+      right: 0;
+      transition: .3s;
+      overflow: hidden;
+      z-index: 1;
+    }
+    img {
+      position: absolute;
+      transition: .3s;
+      margin: auto;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+  }
+  &.horizontal {
+    .hover_rtl {
+      transform: translateX(2.1875em);
+      img {
+        transform: translateX(-2.1875em);
+      }
+    }
+    &.la-in {
+      .hover_rtl {
+        right: 0;
+        transform: translateX(0);
+        img {
+          transform: translateX(0);
+        }
+      }
+    }
+    &.la-out {
+      .hover_rtl {
+        transform: translateX(-2.1875em);
+        img {
+          transform: translateX(2.1875em);
+        }
+      }
+    }
+  }
+  &.vertical {
+    .hover_rtl {
+      transform: translateY(2.1875em);
+      img {
+        transform: translateY(-2.1875em);
+      }
+    }
+    &.la-in {
+      .hover_rtl {
+        right: 0;
+        transform: translateY(0);
+        img {
+          transform: translateY(0);
+        }
+      }
+    }
+    &.la-out {
+      .hover_rtl {
+        transform: translateY(-2.1875em);
+        img {
+          transform: translateY(2.1875em);
+        }
+      }
+    }
+    &.slide-bnt {
+      .hover_rtl {
+        transform: translateY(100%);
+        b {
+          display: block;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          transition: .3s;
+          width: 100%;
+          height: 100%;
+          transform: translateY(-100%);
+          img {
+            transform: translateY(0);
+          }
+        }
+      }
+      &.la-in {
+        .hover_rtl {
+          transform: translateY(0) !important;
+          b {
+            transform: translateY(0) !important;
+          }
+        }
+      }
+      &.la-out {
+        .hover_rtl {
+          transform: translateY(-100%) !important;
+          b {
+            transform: translateY(100%) !important;
+          }
+        }
+      }
+      &.slide-up {
+        background: $red;
+        img {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+  &.la-reset {
+    .hover_rtl {
+      transition: 0s;
+    }
+  }
+  &:after, &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 300%;
+    height: 100%;
+    background: $red;
+    transition: .6s;
+    right: -300%;
+  }
+}
+.open-txt-btn-rtl {
+  display: inline-block;
+  text-align: right;
+  overflow: hidden;
+  position: relative;
+}
+.text-button {
+  font-family: AvenirNextCyr, sans-serif;
+  display: inline-block;
+  font-weight: normal;
+  transition: .3s;
+  position: relative;
+  overflow: hidden;
+  transform: translateX(100%);
+  @include em((
+          padding: 7px 17px,
+  ), $base-font-size);
+  &.bg-red {
+    background-color: $red;
+    color: #fff;
+    border: em(3px, $base-font-size) solid $red;
+    &:hover {
+      background-color: $dark;
+      border: em(3px, $base-font-size) solid $dark;
+    }
+  }
+  &.bg-transparent {
+    color: $red;
+    border: em(3px, $base-font-size) solid $red;
+    &:hover {
+      color: #fff;
+      background-color: $red;
+    }
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transition: .4s;
+    background: $red;
+  }
+}
+
+#dots {
+  display: block;
+  background: $light-gray;
+  padding: em(10px, $base-font-size) 0;
+  span {
+    display: block;
+    background: $gray;
+    transition: .3s;
+    cursor: pointer;
+    @include em((
+            width: 8px,
+            height: 8px,
+            margin: 10px auto,
+    ), $base-font-size);
+    &.current, &:hover {
+      background: $dark;
+    }
+  }
+}
+
+.page-load {
+  .button {
+    visibility: visible;
+    right: 0;
+    @include em((
+            width: 40px,
+    ),$base-font-size);
+    &:after {
+      right: 100%;
+    }
+  }
+}
+
+.page-over {
+  .open-btn-rtl {
+    text-align: left;
+  }
+  .button {
+    right: 100%;
+    &:before {
+      right: -100%;
+    }
+  }
+}
